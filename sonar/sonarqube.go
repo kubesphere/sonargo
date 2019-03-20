@@ -88,12 +88,7 @@ func (c *Client) NewRequest(method, path string, opt interface{}) (*http.Request
 
 	req.Header.Set("Accept", "application/json")
 
-	switch c.authType {
-	case basicAuth, oAuthToken:
-		req.SetBasicAuth(c.username, c.password)
-	case privateToken:
-		req.SetBasicAuth(c.token, "")
-	}
+	req.SetBasicAuth(c.username, c.password)
 	req.Header.Set("User-Agent", userAgent)
 	return req, nil
 }

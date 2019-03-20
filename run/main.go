@@ -2083,10 +2083,10 @@ func RulesTagsFunc() {
 // RulesUpdateFunc testing Update an existing rule.<br>Requires the 'Administer Quality Profiles' permission
 func RulesUpdateFunc() {
 	opt := &RulesUpdateOption{
-		DebtRemediationFnOffset: "",
-		DebtRemediationFnType:   "",
-		DebtRemediationFyCoeff:  "",
-		DebtSubCharacteristic:   "",
+		DebtRemediationFnOffset:    "",
+		DebtRemediationFnType:      "",
+		DebtRemediationFyCoeff:     "",
+		DebtSubCharacteristic:      "",
 		Key:                        "squid:magic_test_rule1",
 		MarkdownDescription:        "",
 		MarkdownNote:               "",
