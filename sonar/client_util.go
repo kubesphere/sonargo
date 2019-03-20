@@ -115,7 +115,6 @@ func Do(c *http.Client, req *http.Request, v interface{}) (*http.Response, error
 				*w = string(byts)
 			} else {
 				decoder := json.NewDecoder(resp.Body)
-				decoder.DisallowUnknownFields()
 				err = decoder.Decode(v)
 			}
 		}
@@ -130,8 +129,7 @@ type ErrorResponse struct {
 }
 
 func (e *ErrorResponse) Error() string {
-	path, _ := url.QueryUnescape(e.Response.Request.URL.Path)
-	u := fmt.Sprintf("%s://%s%s", e.Response.Request.URL.Scheme, e.Response.Request.URL.Host, path)
+	u := fmt.Sprintf("%s://%s%s", e.Response.Request.URL.Scheme, e.Response.Request.URL.Host, e.Response.Request.URL.RequestURI())
 	return fmt.Sprintf("%s %s: %d %s", e.Response.Request.Method, u, e.Response.StatusCode, e.Message)
 }
 func CheckResponse(r *http.Response) error {
