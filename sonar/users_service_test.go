@@ -3,7 +3,7 @@ package sonargo_test
 import (
 	"strings"
 
-	. "github.com/magicsong/sonargo/sonar"
+	. "github.com/kubesphere/sonargo/sonar"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

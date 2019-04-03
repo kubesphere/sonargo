@@ -7,7 +7,7 @@ import (
 	"os"
 
 	spew "github.com/davecgh/go-spew/spew"
-	. "github.com/magicsong/sonargo/sonar"
+	. "github.com/kubesphere/sonargo/sonar"
 )
 
 var client *Client
