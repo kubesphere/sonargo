@@ -24,6 +24,7 @@ func getIssue() string {
 		CreatedAt:          "",
 		CreatedBefore:      "",
 		CreatedInLast:      "",
+		Facets:             "severities,types",
 		Issues:             "",
 		Languages:          "",
 		P:                  "",
@@ -42,6 +43,7 @@ func getIssue() string {
 	Expect(err).ShouldNot(HaveOccurred())
 	Expect(resp.StatusCode).To(Equal(200))
 	Expect(v.Issues).NotTo(BeNil())
+	Expect(len(v.Facets) == 2).To(BeTrue())
 	return v.Issues[1].Key
 }
 func addComment(comment string) string {
